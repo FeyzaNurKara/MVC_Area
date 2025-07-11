@@ -8,11 +8,15 @@ namespace MVC_Area.Areas.SatinAlma.Controllers
     {
         private readonly IProductRepository _productRepository;
         private readonly ICategoryRepository _categoryRepository;
+        private readonly ISupplierRepository _suppleierRepository;
 
-        public HomeController(IProductRepository productRepository,ICategoryRepository categoriesRepository)
+
+        public HomeController(IProductRepository productRepository,ICategoryRepository categoriesRepository,ISupplierRepository supplierRepository)
         {
             _productRepository = productRepository;
             _categoryRepository = categoriesRepository;
+            _suppleierRepository = supplierRepository;
+
         }
 
        
@@ -28,6 +32,8 @@ namespace MVC_Area.Areas.SatinAlma.Controllers
 
 
             //ViewBag Supplier Count
+            ViewBag.SupplierCount = await _suppleierRepository.GetSupplierCountAsync();
+
 
             //ViewBag CriticalStockCount
 

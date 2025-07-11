@@ -13,8 +13,19 @@ string connectionString = builder.Configuration.GetConnectionString("FeyzaConnec
 builder.Services.AddDbContext<NorthwindContext>(options => options.UseSqlServer(connectionString));
 
 //Dependency Injection Services
+
+//Satýn alma Ýþlemleri
 builder.Services.AddScoped<IProductRepository,ProductRepository>();
 builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
+builder.Services.AddScoped<ISupplierRepository, SupplierRepository>();
+
+
+
+//Muhasebe Ýþlemleri
+builder.Services.AddScoped<IOrderRepository, OrderRepository>();
+builder.Services.AddScoped <IOrdersDetailsRepository, OrdersDetailsRepository >();
+
+
 
 var app = builder.Build();
 
