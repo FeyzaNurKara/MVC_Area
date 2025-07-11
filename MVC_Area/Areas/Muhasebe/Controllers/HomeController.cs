@@ -8,14 +8,14 @@ namespace MVC_Area.Areas.Muhasebe.Controllers
     public class HomeController : Controller
     {
         private readonly IOrderRepository _ordersRepository;
-        private readonly IOrdersDetailsRepository _ordersDetailsRepository;
+        private readonly IOrderDetailRepository _orderDetailRepository;
        
 
 
-        public HomeController(IOrderRepository ordersRepository, IOrdersDetailsRepository ordersDetailsRepository)
+        public HomeController(IOrderRepository ordersRepository, IOrderDetailRepository orderDetailRepository)
         {
             _ordersRepository = ordersRepository;
-            _ordersDetailsRepository = ordersDetailsRepository;
+            _orderDetailRepository= orderDetailRepository; 
           
 
         }
@@ -29,7 +29,8 @@ namespace MVC_Area.Areas.Muhasebe.Controllers
             ViewBag.OrderCount = await _ordersRepository.GetOrderCountAsync();
 
             //ViewBag OrdersDetails Count
-            ViewBag.OrdersDetailsCount = await _ordersDetailsRepository. GetOrdersDetailsCountAsync();
+            ViewBag.OrderDetailCount=await _orderDetailRepository.GetOrdersDetailsCountAsync();
+
 
 
             ////ViewBag SalesByCategory Count
