@@ -1,0 +1,38 @@
+﻿@model List<MVC_Area.Models.Northwind.Employee>
+@{
+    ViewData["Title"] = "EmployeeController";
+    Layout = "~/Views/Shared/SidebarPartials/_Sidebar_InsanKaynaklari.cshtml";
+}
+
+<h1>Çalışan Listesi</h1>
+<!--Bootstrap-->
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Çalışan İsmi</th>
+            <th>Çalışan Soyismi</th>
+            <th>Ünvan</th>
+            <th>Yaşadığı Şehir</th>
+            <th>
+                <a href="#" class="btn btn-sm btn-success">Çalışan Ekle</a>
+            </th>
+        </tr>
+    </thead>
+    <tbody class="table-group-divider">
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.EmployeeId</td>
+                <td>@item.FirstName</td>
+                <td>@item.LastName</td>
+                <td>@item.Title</td>
+                <td>@item.City</td>
+                <td>
+                    <a href="#" class="btn btn-sm btn-warning">Güncelle</a>
+                    <a href="#" class="btn btn-sm btn-danger">Sil</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -9,14 +9,17 @@ namespace MVC_Area.Areas.Muhasebe.Controllers
     {
         private readonly IOrderRepository _ordersRepository;
         private readonly IOrderDetailRepository _orderDetailRepository;
+        private readonly ISaleByCategoryRepository _saleByCategoryRepository;
+
        
 
 
-        public HomeController(IOrderRepository ordersRepository, IOrderDetailRepository orderDetailRepository)
+        public HomeController(IOrderRepository ordersRepository, IOrderDetailRepository orderDetailRepository, ISaleByCategoryRepository saleByCategoryRepository)
         {
             _ordersRepository = ordersRepository;
-            _orderDetailRepository= orderDetailRepository; 
-          
+            _orderDetailRepository= orderDetailRepository;
+            _saleByCategoryRepository=saleByCategoryRepository;
+
 
         }
 
@@ -33,8 +36,9 @@ namespace MVC_Area.Areas.Muhasebe.Controllers
 
 
 
-            ////ViewBag SalesByCategory Count
-            //ViewBag.SupplierCount = await _suppleierRepository.GetSupplierCountAsync();
+            ////ViewBag SaleByCategory Count
+            ViewBag.SaleByCategoryCount=await _saleByCategoryRepository.GetSaleByCategoryCountAsync();
+
 
 
 

@@ -24,6 +24,11 @@ builder.Services.AddScoped<ISupplierRepository, SupplierRepository>();
 //Muhasebe Ýþlemleri
 builder.Services.AddScoped<IOrderRepository, OrderRepository>();
 builder.Services.AddScoped<IOrderDetailRepository, OrderDetailRepository>();
+builder.Services.AddScoped<ISaleByCategoryRepository,SaleByCategoryRepository>();
+
+//ÝK
+builder.Services.AddScoped<IEmployeeRepository, EmployeeRepository>();
+
 
 
 
